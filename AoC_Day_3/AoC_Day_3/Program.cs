@@ -5,11 +5,14 @@ using System.Collections;
 
 int counter = 0;
 ArrayList rucksacks = new ArrayList();
+ArrayList ruckSackGroups = new ArrayList();
+List<string> ruckSackGroupRuckSacks = new List<string>();
 Dictionary<string, int> lowercaseValues = new Dictionary<string, int>();
 Dictionary<string, int> uppercaseValues = new Dictionary<string, int>();
 
+string lastLine = File.ReadLines(@"D:\Repos\AdventOfCode2022\AoC_Day_3\AoC_Day_3\rucksacks.txt").Last();
+
 foreach (string line in System.IO.File.ReadLines(@"D:\Repos\AdventOfCode2022\AoC_Day_3\AoC_Day_3\rucksacks.txt")) {
-    counter++;
 
     List<string> rucksack = new List<string>();
 
@@ -23,22 +26,34 @@ foreach (string line in System.IO.File.ReadLines(@"D:\Repos\AdventOfCode2022\AoC
     rucksacks.Add(rucksack);
 
 
-    //if (counter % 2 == 0) {
-    //    rucksack.Add(line);
-    //    rucksacks.Add(rucksack);
-    //}else {
-    //    rucksack.Clear();
-    //    rucksack.Add(line); 
-    //}
+    //part 2
+    if (counter != 3) {
+        ruckSackGroupRuckSacks.Add(line);
+    } else {
+        counter = 0;
+        ruckSackGroups.Add(ruckSackGroupRuckSacks);
+        ruckSackGroupRuckSacks = new List<string>();
+        ruckSackGroupRuckSacks.Add(line);
+    }
+    
+    if(line == lastLine) {
+        ruckSackGroups.Add(ruckSackGroupRuckSacks);
+    }
+    counter++;
 }
 
 Rucksacks rSack = new Rucksacks();
-int runningTotal = 0;
+int partOneTotal = 0;
+int partTwoTotal = 0;
 
 foreach (List<string> sack in rucksacks) {
-    runningTotal += rSack.doWork(sack);
-
+    partOneTotal += rSack.doWork(sack);
 }
-Console.WriteLine(runningTotal);
+
+foreach (List<string> sack in ruckSackGroups) {
+    partTwoTotal += rSack.doPart2Work(sack);
+}
+Console.WriteLine("Part 1:  " + partOneTotal.ToString());
+Console.WriteLine("Part 2:  " + partTwoTotal.ToString());
 
 Console.ReadKey();
