@@ -55,10 +55,6 @@ namespace AoC_Day_3 {
             this.compartmentThree = ruckSack[2];
             int result = 0;
 
-            foreach (string line in ruckSack) {
-                Console.WriteLine(line);
-            }
-
             List<int> compartOne = new List<int>();
             List<int> compartTwo = new List<int>();
             List<int> compartThree = new List<int>();
@@ -76,17 +72,11 @@ namespace AoC_Day_3 {
             foreach (int value in compartOne) {
                 int found = compartTwo.Find(x => x == value) & compartThree.Find(x => x == value);
                 if (found > 0) {
-                    //Console.WriteLine(found.ToString() + " - " + getLetterFromValue(found));
-                    Console.WriteLine("---------------------------------");
                     return found;
                 }
 
             }
             return result;
-        }
-
-        private string getLetterFromValue(int val) {
-            return alphaValues.FirstOrDefault(x => x.Value == val).Key;
         }
     }
 }
