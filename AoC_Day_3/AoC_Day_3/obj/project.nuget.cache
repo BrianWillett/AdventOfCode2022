@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "2cC02wqM9EgbTjrYnEjtCj4vUOwJheX9/ogSTLlUmzkFCn5iF0Rv85SEN8HHkWv4gQJCMHu5F37fqnzXFZ9nXQ==",
+  "success": true,
+  "projectFilePath": "D:\\Repos\\AdventOfCode2022\\AoC_Day_3\\AoC_Day_3\\AoC_Day_3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jarlaxle\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
+    "C:\\Users\\Jarlaxle\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
